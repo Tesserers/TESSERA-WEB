@@ -1,11 +1,8 @@
 /* ══════════════════════════════════════════════════
    JOURNAL · newsletter y entradas
-   Fuente de datos:
-     1. Supabase (si js/journal-config.js define supabaseUrl y anonKey)
-     2. content/journal.json (por defecto)
+   Las entradas salen de content/journal.json, que se edita desde /admin
    ══════════════════════════════════════════════════ */
 (function () {
-  const cfg = window.TESSERA_JOURNAL || {};
   const section = document.getElementById('journal');
   if (!section) return;
 
@@ -13,26 +10,14 @@
     es: {
       label: 'Journal',
       title: 'Ideas para decidir <strong>con criterio.</strong>',
-      intro: 'Finanzas, capital humano y operaciones corporativas contadas sin rodeos. Una vez al mes, en tu correo.',
-      all: 'Todo', read: 'Leer', featured: 'Destacado', empty: 'Todavía no hay entradas publicadas.',
-      subTitle: 'Suscríbete al Journal',
-      subText: 'Un resumen al mes. Sin spam y puedes darte de baja cuando quieras.',
-      subPlaceholder: 'tu@empresa.com', subButton: 'Suscribirme',
-      subOk: 'Hecho. Te escribiremos pronto.', subBad: 'Revisa el correo, no parece válido.',
-      subErr: 'No hemos podido suscribirte ahora mismo. Inténtalo más tarde.',
-      subOff: 'Las suscripciones se activarán muy pronto.'
+      intro: 'Finanzas, capital humano y operaciones corporativas contadas sin rodeos. Nuestra mirada sobre cómo decidir mejor.',
+      all: 'Todo', read: 'Leer', featured: 'Destacado', empty: 'Todavía no hay entradas publicadas.'
     },
     en: {
       label: 'Journal',
       title: 'Ideas to decide <strong>with judgement.</strong>',
-      intro: 'Finance, human capital and corporate deals, no fluff. Once a month, in your inbox.',
-      all: 'All', read: 'Read', featured: 'Featured', empty: 'No posts published yet.',
-      subTitle: 'Subscribe to the Journal',
-      subText: 'One digest a month. No spam, unsubscribe any time.',
-      subPlaceholder: 'you@company.com', subButton: 'Subscribe',
-      subOk: 'Done. We will be in touch soon.', subBad: 'Please check the email address.',
-      subErr: 'We could not subscribe you right now. Please try again later.',
-      subOff: 'Subscriptions will open very soon.'
+      intro: 'Finance, human capital and corporate deals, no fluff. Our view on how to decide better.',
+      all: 'All', read: 'Read', featured: 'Featured', empty: 'No posts published yet.'
     }
   };
 
@@ -56,6 +41,28 @@
     if (isNaN(d)) return '';
     return d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
   }
+
+  /* El editor guarda el texto en Markdown; se pasa a HTML y luego se sanea */
+  function md(src) {
+    const esc = (x) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const inline = (x) => esc(x)
+      .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img alt="$1" src="$2">')
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+    return String(src || '').split(/\n{2,}/).map((blk) => {
+      const b = blk.trim();
+      if (!b) return '';
+      const h = b.match(/^(#{1,3})\s+(.*)$/);
+      if (h) return '<h' + (h[1].length + 1) + '>' + inline(h[2]) + '</h' + (h[1].length + 1) + '>';
+      if (/^[-*]\s/.test(b)) return '<ul>' + b.split('\n').map((l) => '<li>' + inline(l.replace(/^[-*]\s+/, '')) + '</li>').join('') + '</ul>';
+      if (/^\d+\.\s/.test(b)) return '<ol>' + b.split('\n').map((l) => '<li>' + inline(l.replace(/^\d+\.\s+/, '')) + '</li>').join('') + '</ol>';
+      if (/^>\s/.test(b)) return '<blockquote>' + inline(b.replace(/^>\s?/gm, '')) + '</blockquote>';
+      return '<p>' + inline(b).replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+  }
+
+  const slugOf = (p) => p.slug || (String(p.title || 'entrada').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + String(p.date || '').slice(0, 10));
 
   /* Saneado mínimo del cuerpo (lo escribe el equipo, pero no se fía) */
   const ALLOWED = new Set(['P', 'BR', 'STRONG', 'EM', 'B', 'I', 'A', 'UL', 'OL', 'LI', 'H2', 'H3', 'H4', 'BLOCKQUOTE', 'IMG']);
@@ -119,7 +126,6 @@
 
   function applyStatic() {
     section.querySelectorAll('[data-journal]').forEach((n) => { n.innerHTML = t(n.dataset.journal); });
-    section.querySelectorAll('[data-journal-placeholder]').forEach((n) => { n.placeholder = t(n.dataset.journalPlaceholder); });
   }
 
   /* ── Lector de entradas ── */
@@ -131,7 +137,7 @@
     const img = $('journalReaderImg');
     img.hidden = !p.image;
     if (p.image) img.src = p.image;
-    $('journalReaderBody').innerHTML = sanitize(field(p, 'body'));
+    $('journalReaderBody').innerHTML = sanitize(/^\s*</.test(field(p, 'body') || '') ? field(p, 'body') : md(field(p, 'body')));
     reader.classList.add('open');
     reader.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -157,49 +163,8 @@
     if (m) open(decodeURIComponent(m[1])); else close(true);
   });
 
-  /* ── Suscripción ── */
-  const form = $('journalSubscribe');
-  const msg = $('journalSubMsg');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = form.email.value.trim();
-    msg.className = 'journal-sub-msg';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = t('subBad'); msg.classList.add('is-bad'); return; }
-    if (!cfg.supabaseUrl || !cfg.anonKey) { msg.textContent = t('subOff'); return; }
-    const btn = form.querySelector('button');
-    btn.disabled = true;
-    try {
-      const res = await fetch(cfg.supabaseUrl + '/rest/v1/newsletter_subscribers', {
-        method: 'POST',
-        headers: {
-          apikey: cfg.anonKey,
-          Authorization: 'Bearer ' + cfg.anonKey,
-          'Content-Type': 'application/json',
-          Prefer: 'return=minimal'
-        },
-        body: JSON.stringify({ email, lang })
-      });
-      /* 409: ya estaba suscrito; para quien escribe es igual de correcto */
-      if (!res.ok && res.status !== 409) throw new Error(res.status);
-      form.reset();
-      msg.textContent = t('subOk');
-      msg.classList.add('is-ok');
-    } catch (err) {
-      msg.textContent = t('subErr');
-      msg.classList.add('is-bad');
-    } finally {
-      btn.disabled = false;
-    }
-  });
-
   /* ── Carga de datos ── */
   async function load() {
-    if (cfg.supabaseUrl && cfg.anonKey) {
-      const url = cfg.supabaseUrl + '/rest/v1/journal_posts?select=*&published=eq.true&order=date.desc';
-      const res = await fetch(url, { headers: { apikey: cfg.anonKey, Authorization: 'Bearer ' + cfg.anonKey } });
-      if (!res.ok) throw new Error(res.status);
-      return res.json();
-    }
     const res = await fetch('content/journal.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(res.status);
     return (await res.json()).posts.filter((p) => p.published !== false);
@@ -211,13 +176,21 @@
     render();
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
+  /* Sin entradas publicadas la sección y sus enlaces no se muestran */
+  function toggleJournal(show) {
+    section.hidden = !show;
+    document.querySelectorAll('a[href="#journal"]').forEach((a) => { (a.closest('li') || a).hidden = !show; });
+  }
+
   applyStatic();
+  toggleJournal(false);
   load()
     .then((data) => {
-      posts = data.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+      posts = data.map((p) => Object.assign({}, p, { slug: slugOf(p) })).sort((a, b) => String(b.date).localeCompare(String(a.date)));
+      toggleJournal(posts.length > 0);
       render();
       const m = location.hash.match(/^#journal\/(.+)$/);
       if (m) open(decodeURIComponent(m[1]));
     })
-    .catch(() => { emptyEl.hidden = false; });
+    .catch(() => toggleJournal(false));
 })();

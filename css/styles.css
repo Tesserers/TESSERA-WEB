@@ -2336,25 +2336,6 @@ section > .section-inner {
 .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .journal-empty { text-align: center; color: var(--mid); padding: 3rem 0; }
 
-.journal-subscribe {
-  margin-top: 4.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; align-items: center;
-  background: var(--navy); color: var(--beige); border-radius: 18px; padding: 2.75rem 3rem;
-}
-.journal-subscribe h3 { font-size: 1.7rem; font-weight: 200; }
-.journal-subscribe h3::after { content: ""; display: block; width: 44px; height: 3px; background: var(--yellow); margin-top: .9rem; }
-.journal-subscribe p { color: rgba(230,236,236,.75); font-weight: 300; margin-top: .9rem; line-height: 1.6; }
-.journal-sub-row { display: flex; gap: .75rem; }
-.journal-sub-row input {
-  flex: 1; min-width: 0; font: inherit; padding: .9rem 1.3rem; border-radius: 999px;
-  background: rgba(230,236,236,.08); border: 1px solid rgba(230,236,236,.3); color: var(--beige);
-}
-.journal-sub-row input::placeholder { color: rgba(230,236,236,.5); }
-.journal-sub-row input:focus { outline: 2px solid var(--yellow); outline-offset: 2px; }
-.journal-sub-row button { border: 0; cursor: pointer; font-family: inherit; }
-.journal-sub-msg { grid-column: 1 / -1; min-height: 1.2em; margin: 0 !important; font-size: .85rem; }
-.journal-sub-msg.is-ok { color: var(--yellow) !important; }
-.journal-sub-msg.is-bad { color: #ffb4a8 !important; }
-
 .journal-reader {
   position: fixed; inset: 0; z-index: 1200; display: none; overflow-y: auto;
   background: rgba(22,22,31,.82); padding: 4vh 1.25rem;
@@ -2381,14 +2362,12 @@ section > .section-inner {
   .journal-grid { grid-template-columns: repeat(2, 1fr); }
   .journal-card--big { flex-direction: column; }
   .journal-card--big .journal-card-img { min-height: 0; aspect-ratio: 16/10; flex: none; }
-  .journal-subscribe { grid-template-columns: 1fr; padding: 2rem 1.75rem; }
 }
 @media (max-width: 640px) {
   #journal { padding: 4.5rem 0 4rem; }
   .journal-head { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
   .journal-grid { grid-template-columns: 1fr; }
   .journal-card--big .journal-card-body { padding: 1.6rem; }
-  .journal-sub-row { flex-direction: column; }
   .journal-reader-panel { padding: 2.5rem 1.4rem 2.2rem; }
 }
 
