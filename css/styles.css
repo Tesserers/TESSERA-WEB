@@ -327,7 +327,7 @@ nav.nav-light .lang-switch:hover {
 
 .mobile-nav a:hover,
 .mobile-nav a.mobile-cta {
-  color: var(--yellow);
+  color: var(--teal-lt);
 }
 
 /* ══════════════════ HERO ══════════════════ */
@@ -802,7 +802,7 @@ section {
 }
 
 .svc-tab:hover .service-num  { color: var(--teal-lt); }
-.svc-tab.active .service-num  { color: var(--yellow); }
+.svc-tab.active .service-num  { color: var(--teal-lt); }
 .svc-tab.active .service-name { color: var(--beige); }
 
 /* Flecha que aparece en el servicio activo */
@@ -815,7 +815,7 @@ section {
   transform: translateX(-6px);
   transition: opacity .3s var(--ease), transform .3s var(--ease), color .3s;
 }
-.svc-tab.active .svc-arrow { color: var(--yellow); opacity: 1; transform: none; }
+.svc-tab.active .svc-arrow { color: var(--teal-lt); opacity: 1; transform: none; }
 
 /* ── Panel de detalle: foto duotono + texto ── */
 .services-md-detail {
@@ -901,7 +901,7 @@ section {
 }
 
 .service-ebitda strong {
-  color: var(--yellow);
+  color: var(--teal-lt);
   font-weight: 800;
 }
 
@@ -924,7 +924,7 @@ section {
 }
 
 .meth-title em {
-  color: var(--yellow) !important;
+  color: var(--teal-lt) !important;
   font-style: normal;
 }
 
@@ -1038,7 +1038,7 @@ section {
 
 .meto-unit {
   font-size: clamp(1.8rem, 3vw, 2.8rem);
-  color: var(--yellow);
+  color: var(--teal-lt);
   font-weight: 700;
 }
 
@@ -1150,7 +1150,7 @@ section {
 }
 
 .tessa-card strong {
-  color: var(--yellow);
+  color: var(--teal-lt);
   font-weight: 700;
 }
 
@@ -1211,7 +1211,7 @@ section {
   transition: width 1.2s var(--ease);
 }
 
-.progress-item:nth-child(4) .progress-fill { background: linear-gradient(90deg, var(--teal) 0%, var(--yellow) 100%); }
+.progress-item:nth-child(4) .progress-fill { background: linear-gradient(90deg, var(--teal) 0%, var(--teal-lt) 100%); }
 .progress-item:nth-child(1) .progress-fill { transition-delay:   0ms; }
 .progress-item:nth-child(2) .progress-fill { transition-delay: 120ms; }
 .progress-item:nth-child(3) .progress-fill { transition-delay: 240ms; }
@@ -1280,7 +1280,7 @@ section {
 
 .salary-title strong {
   font-weight: 800;
-  color: var(--yellow);
+  color: var(--teal-lt);
 }
 
 .salary-desc {
@@ -1520,8 +1520,8 @@ section {
 }
 
 .testimonial-card:hover .testimonial-result {
-  color: var(--yellow);
-  border-color: var(--yellow);
+  color: var(--teal-lt);
+  border-color: var(--teal-lt);
   background: rgba(138,163,165,.08);
 }
 
@@ -1572,7 +1572,7 @@ section {
   justify-content: center;
   font-size: .82rem;
   font-weight: 800;
-  color: var(--yellow);
+  color: var(--teal-lt);
   flex-shrink: 0;
   transition: background .3s;
 }
@@ -2010,7 +2010,7 @@ section > .section-inner {
 
 .modal-title em {
   font-style: italic;
-  color: var(--yellow);
+  color: var(--teal-lt);
   font-weight: 300;
 }
 
@@ -2100,7 +2100,7 @@ section > .section-inner {
 }
 
 .modal-submit:hover {
-  background: var(--yellow);
+  background: var(--teal-lt);
   color: var(--navy);
   transform: translateY(-2px);
 }

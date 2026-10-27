@@ -86,11 +86,11 @@
 /* Cabecera y controles en claro sobre el navy */
 #casos .section-label { color: var(--teal-lt); }
 #casos .section-title { color: var(--beige); }
-#casos .section-title strong { color: var(--yellow); }
+#casos .section-title strong { color: var(--teal-lt); }
 #casos .carousel-btn { border-color: rgba(230,236,236,.4); color: rgba(230,236,236,.8); }
 #casos .carousel-btn:hover { background: var(--teal); border-color: var(--teal); color: var(--beige); }
 #casos .carousel-dot { background: rgba(230,236,236,.4); }
-#casos .carousel-dot.active { background: var(--yellow); box-shadow: 0 0 8px rgba(138,163,165,.4); }
+#casos .carousel-dot.active { background: var(--teal-lt); box-shadow: 0 0 8px rgba(138,163,165,.4); }
 
 /* Tarjetas "glass" brillantes para que destaquen sobre el fondo oscuro */
 #casos .testimonial-card {
@@ -146,7 +146,7 @@
 /* Etiqueta de resultado (ej. "Financiación conseguida") */
 #casos .testimonial-result,
 #casos .testimonial-card:hover .testimonial-result {
-  color: var(--yellow) !important;
-  border-color: var(--yellow) !important;
+  color: var(--teal-lt) !important;
+  border-color: var(--teal-lt) !important;
   background: rgba(138,163,165,.08) !important;
 }

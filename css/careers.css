@@ -88,7 +88,7 @@
 /* Cabecera en claro sobre el fondo oscuro */
 #careers-values .section-label { color: var(--teal-lt); }
 #careers-values .section-title { color: var(--beige); }
-#careers-values .section-title strong { color: var(--yellow); }
+#careers-values .section-title strong { color: var(--teal-lt); }
 
 /* Lavados de color en movimiento muy lento: teal y dorado derivando por la sección */
 #careers-values::before,
@@ -237,7 +237,7 @@
   align-items: center;
   justify-content: center;
   background: var(--navy);
-  color: var(--yellow);
+  color: var(--teal-lt);
   font-size: 1.2rem;
   margin-bottom: 1.3rem;
 }
@@ -333,7 +333,7 @@
 .job-row:hover .job-arrow {
   background: var(--navy);
   border-color: var(--navy);
-  color: var(--yellow);
+  color: var(--teal-lt);
   transform: translateX(6px);
 }
 
