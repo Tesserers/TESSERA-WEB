@@ -1,3 +1,13 @@
+/* Cifras en Manrope: solo dígitos y signos numéricos, el resto sigue en Raleway */
+@font-face {
+  font-family: 'Manrope Cifras';
+  src: url('https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039, U+0025, U+002B, U+00BA, U+00AA, U+20AC, U+2212;
+}
+
 /* ══ TESSERA · Teamtailor · Bloque 4: POR QUÉ TESSERA · CSS ══
    Pegar SOLO este archivo en el campo CSS del bloque.
    Todo va con ámbito #careers-why para que Teamtailor no lo altere.
@@ -16,7 +26,7 @@
   --bg-lt: #FFFFFF;
   --mid: #5C5C6E;
   --dust: #D5DCDD;
-  --ff: 'Raleway', sans-serif;
+  --ff: 'Manrope Cifras', 'Raleway', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   font-family: var(--ff);
