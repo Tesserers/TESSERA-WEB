@@ -62,7 +62,7 @@ let currentLang = 'es';
 const translations = {
   "es": {
     "meta": {
-      "title": "TESSERA · Finanzas y Capital Humano para PYMES",
+      "title": "TESSERA   Finanzas y Capital Humano para PYMES",
       "description": "Especialistas en M&A, CFO part-time, reestructuración y selección directiva para PYMES y startups en España."
     },
     "nav": {
@@ -78,7 +78,7 @@ const translations = {
       "activeOutreach": "Outreach activo"
     },
     "hero": {
-      "eyebrow": "Finanzas · Capital Humano · Estrategia",
+      "eyebrow": "Finanzas   Capital Humano   Estrategia",
       "title": "Las decisiones que<br><strong>definen tu empresa.</strong>",
       "sub": "La profundidad de una gran firma. La cercanía de un equipo que se sienta en tu mesa.",
       "ctaPrimary": "Hablemos de tu operación",
@@ -111,14 +111,14 @@ const translations = {
       }
     },
     "services": {
-      "label": "Servicios · Finanzas",
+      "label": "Servicios   Finanzas",
       "title": "Capacidades financieras de <strong>principio a fin.</strong>",
       "lead": "No vendemos informes. Nos sentamos en tu mesa, entendemos tu negocio por dentro y tomamos las decisiones difíciles contigo.",
       "ebitda": "Y sí, lo decimos en voz alta: <strong>We love EBITDA.</strong>"
     },
     "svc": {
       "ma": {
-        "title": "M&amp;A · Compraventa de Empresas",
+        "title": "M&amp;A   Compraventa de Empresas",
         "desc": "Te acompañamos en todo el proceso de compraventa: valoración, preparación de la compañía, due diligence, negociación y cierre. Buscamos y filtramos contrapartes, estructuramos la operación y defendemos tus intereses en cada mesa. El objetivo es uno: maximizar el valor de salida y que firmes en las mejores condiciones, sin sorpresas de última hora."
       },
       "cfo": {
@@ -146,7 +146,7 @@ const translations = {
       }
     },
     "meth": {
-      "label": "Human Capital · Selección",
+      "label": "Human Capital   Selección",
       "title": "Encontramos el talento que <em>tu empresa necesita.</em>",
       "sub": "Identificamos, atraemos y seleccionamos perfiles directivos y estratégicos para PYMES y startups. No usamos bases de datos genéricas, hacemos búsqueda activa, directa y confidencial. Y nos comprometemos con plazos reales.",
       "numbersTitle": "Dos números. <strong>Un compromiso.</strong>"
@@ -220,17 +220,17 @@ const translations = {
     "t1": {
       "result": "Financiación conseguida",
       "quote": "Para nosotros fue determinante su involucración en profundizar en el entendimiento del negocio. Mejoraron la contabilidad, optimizaron la fiscalidad y nos consiguieron la financiación que necesitábamos.",
-      "role": "CEO · Sector tecnología"
+      "role": "CEO   Sector tecnología"
     },
     "t2": {
       "result": "2 adquisiciones cerradas",
       "quote": "Les estoy muy agradecido porque me ayudaron, con un éxito mayor del que imaginaba, a negociar y comprar dos compañías que me permitieron expandir mi negocio.",
-      "role": "CEO · Expansión internacional"
+      "role": "CEO   Expansión internacional"
     },
     "t3": {
       "result": "Reestructuración en plazo",
       "quote": "Entendieron perfectamente la problemática financiera de la compañía y se adentraron hasta el fondo, incluso en fin de semana, para ayudarnos en el plazo que requería.",
-      "role": "CEO · Reestructuración financiera"
+      "role": "CEO   Reestructuración financiera"
     },
     "carousel": {
       "prev": "Anterior",
@@ -270,7 +270,7 @@ const translations = {
   },
   "en": {
     "meta": {
-      "title": "TESSERA · Finance and Human Capital for SMEs",
+      "title": "TESSERA   Finance and Human Capital for SMEs",
       "description": "Specialists in M&A, part-time CFO, restructuring and executive search for SMEs and startups in Spain."
     },
     "nav": {
@@ -286,7 +286,7 @@ const translations = {
       "activeOutreach": "Active outreach"
     },
     "hero": {
-      "eyebrow": "Finance · Human Capital · Strategy",
+      "eyebrow": "Finance   Human Capital   Strategy",
       "title": "The decisions that<br><strong>define your company.</strong>",
       "sub": "The depth of a major firm. The closeness of a team that sits at your table.",
       "ctaPrimary": "Let's talk about your deal",
@@ -319,14 +319,14 @@ const translations = {
       }
     },
     "services": {
-      "label": "Services · Finance",
+      "label": "Services   Finance",
       "title": "Financial capabilities from the <strong>beginning to the end.</strong>",
       "lead": "We don't sell reports. We sit at your table, understand your business from the inside, and make the hard decisions with you.",
       "ebitda": "And yes, we say it out loud: <strong>We love EBITDA.</strong>"
     },
     "svc": {
       "ma": {
-        "title": "M&amp;A · Buy-Side &amp; Sell-Side",
+        "title": "M&amp;A   Buy-Side &amp; Sell-Side",
         "desc": "We guide you through the entire buy-side or sell-side process: valuation, preparing the company, due diligence, negotiation and closing. We source and screen counterparties, structure the deal and defend your interests at every table. The goal is one: to maximize your exit value and get you signing on the best possible terms, with no last-minute surprises."
       },
       "cfo": {
@@ -354,7 +354,7 @@ const translations = {
       }
     },
     "meth": {
-      "label": "Human Capital · Search",
+      "label": "Human Capital   Search",
       "title": "We find the talent <em>your company needs.</em>",
       "sub": "We identify, attract and select executive and strategic profiles for SMEs and startups. We don't rely on generic databases — we run active, direct and confidential search. And we commit to real deadlines.",
       "numbersTitle": "Two numbers. <strong>One commitment.</strong>"
@@ -428,17 +428,17 @@ const translations = {
     "t1": {
       "result": "Financing secured",
       "quote": "Their commitment to truly understanding our business was decisive for us. They improved our accounting, optimized our tax position and secured the financing we needed.",
-      "role": "CEO · Technology sector"
+      "role": "CEO   Technology sector"
     },
     "t2": {
       "result": "2 acquisitions closed",
       "quote": "I'm very grateful to them — they helped me, with greater success than I imagined, negotiate and acquire two companies that allowed me to expand my business.",
-      "role": "CEO · International expansion"
+      "role": "CEO   International expansion"
     },
     "t3": {
       "result": "Restructuring on schedule",
       "quote": "They fully understood the company's financial challenges and got deeply involved, even on weekends, to help us meet the deadline it required.",
-      "role": "CEO · Financial restructuring"
+      "role": "CEO   Financial restructuring"
     },
     "carousel": {
       "prev": "Previous",
@@ -480,7 +480,7 @@ const translations = {
 
 /* Traducciones de la página de Careers (careers.html) */
 translations.es.careers = {
-  "eyebrow": "Human Capital · Careers",
+  "eyebrow": "Human Capital   Careers",
   "title": "Better decisions,<br><strong>together.</strong>",
   "sub": "Buscamos personas que quieran sentarse en la mesa donde se toman las decisiones. Si te mueve la exigencia y el impacto real, este es tu sitio.",
   "ctaJobs": "Ver vacantes",
@@ -513,7 +513,7 @@ translations.es.careers = {
   "ubiLabel": "Acerca de Tessera Human Capital",
   "ubiFounded": "Fundación",
   "ubiTeam": "Compañeros",
-  "ubiOffice": "Oficinas · Madrid, Asturias y Bilbao",
+  "ubiOffice": "Oficinas   Madrid, Asturias y Bilbao",
   "whyLabel": "Por qué Tessera",
   "whyTitle": "Un sitio donde <strong>se decide de verdad.</strong>",
   "c1t": "Decisiones reales",
@@ -525,7 +525,7 @@ translations.es.careers = {
   "ctaBottom": "Ver vacantes abiertas"
 };
 translations.en.careers = {
-  "eyebrow": "Human Capital · Careers",
+  "eyebrow": "Human Capital   Careers",
   "title": "Better decisions,<br><strong>together.</strong>",
   "sub": "We look for people who want a seat at the table where decisions get made. If you're driven by high standards and real impact, this is your place.",
   "ctaJobs": "View openings",
@@ -558,7 +558,7 @@ translations.en.careers = {
   "ubiLabel": "About Tessera Human Capital",
   "ubiFounded": "Founded",
   "ubiTeam": "Colleagues",
-  "ubiOffice": "Offices · Madrid, Asturias & Bilbao",
+  "ubiOffice": "Offices   Madrid, Asturias & Bilbao",
   "whyLabel": "Why Tessera",
   "whyTitle": "A place where <strong>real decisions happen.</strong>",
   "c1t": "Real decisions",
