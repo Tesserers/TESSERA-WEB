@@ -22,8 +22,7 @@
   --teal-lt: #8AA3A5;
   --slate:   #5C5C6E;
   --beige:   #E6ECEC;
-  --yellow:  #F2C14E;
-  --yellow-ink: #8A6A12;
+  --yellow:  #fbe0a0;
   --bg:      #E6ECEC;
   --bg-lt:   #FFFFFF;
   --mid:     #5C5C6E;
@@ -116,14 +115,14 @@ nav.nav-dark .nav-links a:hover {
 }
 
 nav.nav-dark .nav-cta {
-  background: var(--yellow);
-  color: var(--navy) !important;
-  border: 1px solid var(--yellow);
+  background: rgba(230,236,236,.12);
+  color: var(--beige) !important;
+  border: 1px solid rgba(230,236,236,.3);
 }
 
 nav.nav-dark .nav-cta:hover {
-  background: var(--beige) !important;
-  border-color: var(--beige) !important;
+  background: var(--teal) !important;
+  border-color: var(--teal) !important;
 }
 
 nav.nav-dark .hamburger span {
@@ -359,8 +358,7 @@ nav.nav-light .lang-switch:hover {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  /* Más tinte a la izquierda (texto) y casi nada a la derecha, para que se vea el color del vídeo */
-  background: linear-gradient(90deg, rgba(32,32,49,.78) 0%, rgba(32,32,49,.42) 55%, rgba(32,32,49,.18) 100%);
+  background: rgba(0,0,0,.55);
   z-index: 1;
 }
 
@@ -525,8 +523,8 @@ nav.nav-light .lang-switch:hover {
   align-items: center;
   gap: .6rem;
   padding: .9rem 2rem;
-  background: var(--yellow);
-  color: var(--navy);
+  background: var(--teal);
+  color: var(--beige);
   font-size: .76rem;
   font-weight: 700;
   letter-spacing: .1em;
@@ -537,7 +535,7 @@ nav.nav-light .lang-switch:hover {
 }
 
 .btn-primary:hover {
-  background: var(--beige);
+  background: var(--yellow);
   color: var(--navy);
   transform: translateY(-2px);
 }
@@ -1930,7 +1928,7 @@ footer {
 }
 
 .section-video-overlay--dark {
-  background: rgba(32, 32, 49, 0.52);
+  background: rgba(32, 32, 49, 0.84);
 }
 
 section > .section-inner {
@@ -2273,23 +2271,12 @@ section > .section-inner {
 
 /* ══════════════════ REBRAND 2026 · fotografía y vídeo ══════════════════
    Fotos en blanco y negro con contraste alto; sombras en Navy (brand book, p. 19).
-   Los vídeos van en color. */
-.hero-video,
-.home-bg-video,
-.section-video {
-  filter: contrast(1.08) saturate(1.05);
-}
+   Los vídeos van sin filtro, en color, como en la web publicada. */
 
 :where(img[src*="media/"]:not([src*="tessera-num"]):not([src*="brand/"])) {
   filter: grayscale(1) contrast(1.1);
 }
 
-/* Acento amarillo en títulos sobre fondo claro (rebrand 2026, contraste) */
-#about .section-title strong,
-#servicios .section-title strong {
-  background: linear-gradient(transparent 64%, rgba(242,193,78,.8) 64%);
-  padding: 0 .08em;
-}
 
 /* ══════════════════ JOURNAL ══════════════════ */
 #journal { background: var(--bg); padding: 7rem 0 6rem; }
@@ -2324,7 +2311,7 @@ section > .section-inner {
 .journal-cat { background: var(--yellow); color: var(--navy); font-weight: 700; padding: .2rem .6rem; border-radius: 999px; }
 .journal-card h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
 .journal-card-ex { color: var(--mid); font-weight: 300; font-size: .93rem; line-height: 1.65; }
-.journal-card-more { margin-top: auto; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--yellow-ink); }
+.journal-card-more { margin-top: auto; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
 
 .journal-feature { margin-bottom: 1.75rem; }
 .journal-card--big { flex-direction: row; background: var(--navy); color: var(--beige); }
@@ -2355,7 +2342,7 @@ section > .section-inner {
 .journal-reader-panel img { width: 100%; border-radius: 10px; margin-bottom: 2rem; }
 .journal-reader-body p, .journal-reader-body li { line-height: 1.8; font-weight: 300; margin-bottom: 1.1rem; }
 .journal-reader-body h2, .journal-reader-body h3 { margin: 2rem 0 .8rem; font-weight: 700; }
-.journal-reader-body a { color: var(--yellow-ink); text-decoration: underline; }
+.journal-reader-body a { color: var(--teal); text-decoration: underline; }
 .journal-reader-body ul, .journal-reader-body ol { padding-left: 1.3rem; margin-bottom: 1.1rem; }
 .journal-reader-body blockquote { border-left: 3px solid var(--yellow); padding-left: 1.2rem; margin: 1.5rem 0; font-style: italic; }
 
@@ -2372,6 +2359,5 @@ section > .section-inner {
   .journal-reader-panel { padding: 2.5rem 1.4rem 2.2rem; }
 }
 
-.nav-links a { white-space: nowrap; }
 .journal-cat { white-space: nowrap; }
 .journal-card-meta { flex-wrap: wrap; row-gap: .35rem; }
