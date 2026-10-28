@@ -2287,9 +2287,3 @@ section > .section-inner {
 :where(img[src*="media/"]:not([src*="tessera-num"]):not([src*="brand/"])) {
   filter: grayscale(1) contrast(1.1);
 }
-
-/* ══════════════════ VÍDEO CONTROLADO POR EL SCROLL ══════════════════
-   js/scroll-video.js añade .is-active solo donde el vídeo de fondo se reproduce:
-   el hero se queda fijo una pantalla y el scroll mueve el vídeo. */
-.hero-scrub.is-active { height: 320vh; }
-.hero-scrub.is-active > #top { position: sticky; top: 0; height: 100vh; min-height: 0; }
