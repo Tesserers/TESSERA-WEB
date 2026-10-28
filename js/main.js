@@ -22,7 +22,6 @@ const sectionThemes = {
   'metodologia': 'dark',
   'entregable':  'light',
   'casos':       'dark',
-  'journal':     'light',
   'contacto':    'dark',
   'careers-hero':'dark',
   'careers-why': 'light',
