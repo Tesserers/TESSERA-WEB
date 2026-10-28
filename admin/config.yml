@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: Tesserers/TESSERA-WEB
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+locale: es
+media_folder: media/journal
+public_folder: media/journal
+
+collections:
+  - name: journal
+    label: Journal
+    files:
+      - name: entradas
+        label: Entradas
+        file: content/journal.json
+        format: json
+        fields:
+          - label: Entradas
+            name: posts
+            widget: list
+            label_singular: entrada
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Resumen (sale en la tarjeta), name: excerpt, widget: text }
+              - { label: Categoría, name: category, widget: string, hint: "Ej.: M&A, Finanzas, Capital humano. Cada categoría distinta crea un filtro." }
+              - { label: Fecha, name: date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
+              - { label: Imagen, name: image, widget: image, required: false }
+              - { label: Texto, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list], editor_components: [], hint: "El texto completo de la entrada." }
+              - { label: Destacada (la grande de arriba), name: featured, widget: boolean, default: false }
+              - { label: Publicada, name: published, widget: boolean, default: true, hint: "Desmárcala para guardarla como borrador sin que se vea en la web." }
+              - { label: Título en inglés, name: title_en, widget: string, required: false }
+              - { label: Resumen en inglés, name: excerpt_en, widget: text, required: false }
+              - { label: Texto en inglés, name: body_en, widget: markdown, required: false, buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list], editor_components: [] }
