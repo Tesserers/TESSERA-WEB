@@ -80,8 +80,10 @@ body {
   height: 2px;
   background: var(--teal);
   z-index: 1000;
-  width: 0;
-  transition: width .05s linear;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .05s linear;
 }
 
 /* ══════════════════ NAV ══════════════════ */
@@ -96,7 +98,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.6rem 4rem;
-  transition: padding .4s, background .4s, box-shadow .4s;
+  transition: padding .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
 }
 
 nav.scrolled {
@@ -211,14 +213,16 @@ nav.nav-light .hamburger span {
   position: absolute;
   bottom: -3px;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 1px;
   background: var(--teal);
-  transition: width .3s var(--ease);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s var(--ease);
 }
 
 .nav-links a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .nav-cta {
@@ -289,7 +293,7 @@ nav.nav-light .hamburger span {
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background .3s, border-color .3s, color .3s;
+  transition: background .3s, border-color .3s, color .3s, transform .16s ease-out;
 }
 
 nav.nav-dark .lang-switch {
@@ -548,7 +552,6 @@ nav.nav-light .lang-switch:hover {
 .btn-primary:hover {
   background: var(--yellow);
   color: var(--navy);
-  transform: translateY(-2px);
 }
 
 .btn-ghost {
@@ -570,7 +573,6 @@ nav.nav-light .lang-switch:hover {
 .btn-ghost:hover {
   border-color: var(--teal);
   color: var(--beige);
-  transform: translateY(-2px);
 }
 
 /* ══════════════════ BASE ══════════════════ */
@@ -838,7 +840,7 @@ section {
 
 .svc-detail.active {
   display: block;
-  animation: svcFade .45s var(--ease);
+  animation: svcFade .3s var(--ease);
 }
 
 @keyframes svcFade {
@@ -1373,8 +1375,8 @@ section {
   outline: none;
   cursor: pointer;
   opacity: 0;
-  transform: scale(0);
-  transition: opacity .4s ease, transform .4s cubic-bezier(0.34,1.56,0.64,1), background .5s ease, box-shadow .3s;
+  transform: scale(.6);
+  transition: opacity .4s ease, transform .4s var(--ease), background .5s ease, box-shadow .3s;
 }
 
 /* Pasos que se rellenan en secuencia — todos iguales (estilo progress bar) */
@@ -1475,7 +1477,7 @@ section {
 
 .carousel-track {
   display: flex;
-  transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform .5s var(--ease);
   will-change: transform;
 }
 
@@ -1510,7 +1512,6 @@ section {
 
 .testimonial-card:hover {
   background: var(--navy);
-  transform: translateY(-4px);
   box-shadow: 0 20px 50px rgba(32,32,49,.15);
   border-color: transparent;
 }
@@ -1634,7 +1635,7 @@ section {
   justify-content: center;
   cursor: pointer;
   color: var(--navy);
-  transition: border-color .25s, background .25s, color .25s;
+  transition: border-color .25s, background .25s, color .25s, transform .16s ease-out;
 }
 
 .carousel-btn:hover {
@@ -2113,7 +2114,6 @@ section > .section-inner {
 .modal-submit:hover {
   background: var(--teal-lt);
   color: var(--navy);
-  transform: translateY(-2px);
 }
 
 .modal-legal {
@@ -2287,3 +2287,20 @@ section > .section-inner {
 :where(img[src*="media/"]:not([src*="tessera-num"]):not([src*="brand/"])) {
   filter: grayscale(1) contrast(1.1);
 }
+
+/* ══════════════════ MOVIMIENTO: hover solo con ratón y respuesta al pulsar ══════════════════
+   El desplazamiento al pasar el ratón solo se aplica donde hay ratón: en táctil un toque
+   dejaba el elemento "levantado". Los cambios de color siguen en los :hover de arriba. */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover,
+  .btn-ghost:hover,
+  .modal-submit:hover { transform: translateY(-2px); }
+  .testimonial-card:hover { transform: translateY(-4px); }
+}
+
+.btn-primary:active,
+.btn-ghost:active,
+.modal-submit:active,
+.nav-cta:active,
+.lang-switch:active,
+.carousel-btn:active { transform: scale(.97); }

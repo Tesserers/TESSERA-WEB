@@ -7,7 +7,7 @@ const langSwitch = document.getElementById('langSwitch');
 
 window.addEventListener('scroll', () => {
   const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-  scrollBar.style.width = (pct * 100) + '%';
+  scrollBar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, pct || 0)) + ')';
 }, { passive: true });
 
 window.addEventListener('scroll', () => {

@@ -225,7 +225,6 @@
   transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
 .careers-card:hover {
-  transform: translateY(-4px);
   border-color: var(--teal);
   box-shadow: 0 18px 40px rgba(32,32,49,.08);
 }
@@ -334,7 +333,6 @@
   background: var(--navy);
   border-color: var(--navy);
   color: var(--teal-lt);
-  transform: translateX(6px);
 }
 
 .jobs-foot {
@@ -407,7 +405,7 @@
   text-decoration: none;
   transition: transform .3s var(--ease), border-color .3s, box-shadow .3s;
 }
-.ubi-pin:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: 0 14px 34px rgba(32,32,49,.1); }
+.ubi-pin:hover { border-color: var(--teal); box-shadow: 0 14px 34px rgba(32,32,49,.1); }
 .ubi-pin i { font-size: 1.4rem; color: var(--teal); }
 .ubi-pin-city { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
 .ubi-pin-sub { display: block; font-size: .72rem; color: var(--mid); margin-top: .15rem; letter-spacing: .06em; }
@@ -443,4 +441,11 @@
   .job-row:hover { padding-left: .9rem; }
   .ubi-grid { grid-template-columns: 1fr; }
   .ubi-facts { gap: 2.4rem; }
+}
+
+/* Hover con desplazamiento solo donde hay ratón */
+@media (hover: hover) and (pointer: fine) {
+  .careers-card:hover { transform: translateY(-4px); }
+  .job-row:hover .job-arrow { transform: translateX(6px); }
+  .ubi-pin:hover { transform: translateY(-3px); }
 }
